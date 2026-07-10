@@ -1,0 +1,4 @@
+# This file tells which files and folders NOT to upload to git for syncing
+
+# This folder just stores some cache, we dont need to sync it
+__pycache__ 
