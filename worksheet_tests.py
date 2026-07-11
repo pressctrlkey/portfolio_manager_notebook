@@ -1,6 +1,7 @@
 from typing import Any, Callable
 from dataclasses import dataclass
 
+#region classes
 @dataclass
 class TestCase:
     args: tuple
@@ -51,8 +52,9 @@ class Task:
         print(f"\nPassed {passed}/{len(self.tests)}")
         print("──────────────────────────────")
 
+#endregion
 
-
+#region Task 1
 class PriceChangeTask(Task):
     name = "Price Change Task"
     tests = [
@@ -89,3 +91,35 @@ class CapitalGainTask(Task):
         TestCase((0, 100, 3), 300, "Use the given formula directly."),
     ]
 
+#endregion
+
+#region Task 2
+class MaxStockPriceTask(Task):
+    name="Max Stock Price Task"
+    tests=[
+        TestCase(([1.2,5.6,3.4],),5.6),
+        TestCase(([-1,-5,-2],),-1)
+    ]
+
+class AverageOpenPriceTask(Task):
+    name="Average Open Price Task"
+    tests=[
+        TestCase(([1,2,3],),2.0),
+        TestCase(([10.5,11.5],),11.0)
+    ]
+
+class HighestDailyIncreaseTask(Task):
+    name="Highest Daily Increase Task"
+    tests=[
+        TestCase(([10,12,11,18],),7,"Compare consecutive days."),
+        TestCase(([5,4,3],),0,"If prices never increase, return 0.")
+    ]
+
+class CountUpDaysTask(Task):
+    name="Count Up Days Task"
+    tests=[
+        TestCase(([1,2,2,5],),2,"Count only days where todays price is greater than yesterdays."),
+        TestCase(([5,4,3],),0)
+    ]
+
+#endregion
